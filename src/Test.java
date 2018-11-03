@@ -1,32 +1,32 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Scanner;
 
 public class Test {
 	
-	 
+	private static String file = "500names.txt";
 
-	public Test() {
-		// TODO Auto-generated constructor stub
-	}
+	public static void main(String[] args) throws FileNotFoundException{
 
-	public static void main(String[] args) {
-		
-		int numOfGuests = 61;
-		int mSize = 5;
-		int nSize;
-		int numOfM = 0;
-		int numOfN;
-		int i = 0;
-		
-		if ( (numOfGuests % mSize) == 0 ) 
-		{
-			System.out.println("Hello");
+		try {
+			Scanner sc = new Scanner(new File("500names.txt"));
+			
+			System.out.println("We got the file");
+	
+			// your code to read the file must be added
+		        // here.  Use sc.nextLine() to read each line as a String	
+				 
+		}	
+					
+	
+		catch (IOException e) {
+		 // TODO Auto-generated catch block
+		  e.printStackTrace();
 		}
-		else
-		{
-			while(numOfM == 0) {
-				
-			}
-		}
-
-	}
-
+		
+	
+	
+}
+	
 }
