@@ -9,6 +9,7 @@
  */
 
 import java.util.Scanner;
+import java.lang.*;
 
 public class Joshua_MacFawn_Isaac_Holloway {
 
@@ -39,6 +40,12 @@ public class Joshua_MacFawn_Isaac_Holloway {
 		}
 		else 
 		{
+			// Determine optimal seating arrangement 
+			
+			// Ask user if they want the output
+			
+			// Display the seating assignments 
+			
 			Table planner = new Table(mSize, numOfGuests);
 			
 			System.out.println(planner.getMTableSize());
