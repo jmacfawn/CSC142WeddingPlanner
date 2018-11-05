@@ -6,6 +6,7 @@
 public class Person {
 	
 	private String name;
+	private String[] allNames;
 	
 	// Constructor to set name variable 
 	public Person(String str)
@@ -35,6 +36,12 @@ public class Person {
 	public int getNameLength() 
 	{
 		return name.length();
+	}
+	
+	public String[] getGroupfNames(int num, int i)
+	{
+		
+		return
 	}
 	
 	

@@ -3,26 +3,32 @@
  *
  */
 
-import java.lang.*;
-
 public class Table {
 
 	private int mSize;
 	private int nSize;
+	
 	private double numOfM;
 	private Integer numOfN;
+	
 	private int numOfGuests;
 	
 	
 	/**
+	 * Constructor for Table class. 
 	 * @param m Max table size
 	 * @param n Max table size - 1
 	 */
 	public Table(int m, int n)
 	{
-		mSize = m;
-		nSize = m - 1;
-		numOfGuests = n;
+		mSize = m; // Max table size
+		nSize = m - 1; // Max table size - 1
+		numOfGuests = n; // Total number of guests
+	}
+	
+	public int getNumOfGuests()
+	{
+		return numOfGuests;
 	}
 	
 	public int getMTableSize()
@@ -35,9 +41,11 @@ public class Table {
 		return nSize;
 	}
 	
-	public double getNumOfM() 
+	public int getNumOfM() 
 	{
-		return numOfM;
+		int numOfMInt = (int) Math.round(numOfM);
+		
+		return numOfMInt;
 	}
 	
 	public int getNumOfN() 
@@ -74,24 +82,31 @@ public class Table {
 			} 
 		} 
 		while(numOfN == null);
+	}
+	
+	public void displayOptimalArrangement() 
+	{
+		System.out.println("With " + getNumOfGuests() + " guests and a maximum of "
+				+ getMTableSize() + " guests per table, the optimal seating"
+						+ " arrangement should have " + getNumOfM() + " tables of "
+						+ getMTableSize() + " guests and " + getNumOfN() + " tables of "
+						+ nSize + " guests.");
+	}
+	
+	// Get people assigned to a table 
+	public void getTableAssignments() 
+	{
 		
 	}
 	
-	
-	
 	public static void main(String[] args) 
 	{
-		Table table = new Table(7, 75);
+		Table table = new Table(9, 73);
 		
 		table.optimalSeating();
 		
 		
-		//double k = (((double)(67 - 1)) / 8);
 		
-		
-		//int num = Math.decrementExact(3.5);
-		System.out.println(table.getNumOfM());
-		System.out.println(table.getNumOfN());
 	}
 
 }

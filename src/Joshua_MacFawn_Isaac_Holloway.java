@@ -33,6 +33,12 @@ public class Joshua_MacFawn_Isaac_Holloway {
 		System.out.print("How many guests will be attending the wedding? ");
 		int numOfGuests = scanner.nextInt();
 		
+		/**
+		 * Check if inputs are within the limits of the program
+		 * Program supports:
+		 * # of Guests: 20 - 500
+		 * Max Table Sizes: 4 - 25 
+		 */
 		if((mSize < 4 || mSize > 25) || (numOfGuests < 20 || numOfGuests > 500))
 		{
 			System.out.println("This program doesn't support your inputs. "
@@ -40,15 +46,18 @@ public class Joshua_MacFawn_Isaac_Holloway {
 		}
 		else 
 		{
+			Table table = new Table(mSize, numOfGuests);
+			
 			// Determine optimal seating arrangement 
+			table.optimalSeating();
+			
+			// Display optimal seating arrangement
+			table.displayOptimalArrangement();
 			
 			// Ask user if they want the output
 			
-			// Display the seating assignments 
-			
-			Table planner = new Table(mSize, numOfGuests);
-			
-			System.out.println(planner.getMTableSize());
+			// Display output, if yes
+
 		}
 		
 		
