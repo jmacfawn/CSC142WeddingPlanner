@@ -97,6 +97,19 @@ public class Table {
 	public void getTableAssignments() 
 	{
 		
+		// TODO logic loop 
+		
+		Person p = new Person();
+		String[] listOfNames = p.getSetOfNames(5, 0);
+		
+		int i;
+		
+		for(i = 0; i < listOfNames.length; i++) 
+		{
+			System.out.println(listOfNames[i]);
+		}
+		
+		
 	}
 	
 	public static void main(String[] args) 
@@ -104,6 +117,8 @@ public class Table {
 		Table table = new Table(9, 73);
 		
 		table.optimalSeating();
+		
+		table.getTableAssignments();
 		
 		
 		

@@ -19,6 +19,7 @@ public class Joshua_MacFawn_Isaac_Holloway {
 	public Joshua_MacFawn_Isaac_Holloway() {
 		 
 	}
+	
 
 	/**
 	 * @param args
@@ -27,11 +28,12 @@ public class Joshua_MacFawn_Isaac_Holloway {
 		
 		Scanner scanner = new Scanner(System.in);
 		
-		System.out.print("How many guests will each table hold? ");
+		System.out.print("How many guests will each table hold? (4-25) ");
 		int mSize = scanner.nextInt();
 		
-		System.out.print("How many guests will be attending the wedding? ");
+		System.out.print("How many guests will be attending the wedding? (20-500) ");	
 		int numOfGuests = scanner.nextInt();
+	
 		
 		/**
 		 * Check if inputs are within the limits of the program
@@ -54,9 +56,9 @@ public class Joshua_MacFawn_Isaac_Holloway {
 			// Display optimal seating arrangement
 			table.displayOptimalArrangement();
 			
-			// Ask user if they want the output
+			// TODO Ask user if they want the output
 			
-			// Display output, if yes
+			// TODO Display output, if yes
 
 		}
 		
