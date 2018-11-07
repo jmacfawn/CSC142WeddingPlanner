@@ -99,21 +99,56 @@ public class Table {
 	// Get people assigned to a table 
 	public void getTableAssignments() 
 	{
-		int listPosition = 0;
+		int listPosition = 0, lastTableFilled = 0;
 		int tablesNeeded = (getNumOfM() + getNumOfN());
-		String[][] tables = new String[tablesNeeded][mSize];
+		String[][] tableAssignments = new String[tablesNeeded][mSize];
 		
 		Person p = new Person();
 		
 		// Tables
-		for (int x = 0; x < numOfM; x++) 
+		for (int x = 0; x < getNumOfM(); x++) 
 		{
 		    // Names
 			for (int y = 0; y < mSize; y++) 
 		    {
-		        tables[x][y] = p.getNameFromList(listPosition);
+				tableAssignments[x][y] = p.getNameFromList(listPosition);
 		        listPosition++;
 		    }
+			lastTableFilled++;
+		}
+		
+		if(getNumOfN() > 0)
+		{
+			for (int a = 0 ; a < getNumOfN(); a++) 
+			{
+			    // Names
+				for (int b = 0; b < nSize; b++) 
+			    {
+					tableAssignments[lastTableFilled][b] = p.getNameFromList(listPosition);
+			        listPosition++;
+			    }
+				lastTableFilled++;
+			}
+		}
+		
+	
+		
+		for(int c = 0; c < tableAssignments.length ; c++ )
+		{
+			System.out.println("Table " + (c + 1) );
+			System.out.println("--------------------");
+			
+			for(int d = 0; d < mSize ; d++)
+			{
+				if( tableAssignments[c][d] == null)
+				{
+					System.out.println("EMPTY");
+				} else {
+					System.out.println(tableAssignments[c][d]);
+				}
+				
+			}
+			System.out.println();
 		}
 		
 		
@@ -124,7 +159,7 @@ public class Table {
 	
 	public static void main(String[] args) 
 	{
-		Table table = new Table(9, 63);
+		Table table = new Table(8, 63);
 		
 		table.optimalSeating();
 		
