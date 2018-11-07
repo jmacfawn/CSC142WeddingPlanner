@@ -13,9 +13,7 @@ public class Table {
 	private double numOfM;
 	private Integer numOfN;
 	
-	private int numOfGuests;
-	
-	private String[] tablesNeeded; 
+	private int numOfGuests; 
 	
 	
 	/**
@@ -101,117 +99,38 @@ public class Table {
 	// Get people assigned to a table 
 	public void getTableAssignments() 
 	{
-		
-		int i, j; 
-		
-		
-		int slots = numOfGuests + getNumOfM() + getNumOfN(); 
+		int listPosition = 0;
+		int tablesNeeded = (getNumOfM() + getNumOfN());
+		String[][] tables = new String[tablesNeeded][mSize];
 		
 		Person p = new Person();
-		String[] listOfNames = p.getSetOfNames(slots);
 		
-		HashMap<Integer, String> tableMap = new HashMap<Integer, String>();
-		
-		for(i = 0; i < listOfNames.length ; i++)
-		{	
-			tableMap.put(i, listOfNames[i]);
-		}
-		
-		tableMap.put(0, "Table 1");
-		
-		int tableNum = 2;
-		int listPosition = 0;
-		
-		
-		for(j = 1; j <= slots; j++)
+		// Tables
+		for (int x = 0; x < numOfM; x++) 
 		{
-			
-			if((j % (mSize + 1)) == 0)
-			{
-				tableMap.put(j, "Table " + tableNum);
-				tableNum++;
-				listPosition = j; 
-			}
-			
-			
+		    // Names
+			for (int y = 0; y < mSize; y++) 
+		    {
+		        tables[x][y] = p.getNameFromList(listPosition);
+		        listPosition++;
+		    }
 		}
 		
-//		if(((mSize + 2) % i) == 0)
-//		{
-//			tableMap.put(i, "Table");
-//		}
-		
-		
-		
-//		for(i = 0 ; i < numOfM ; i++)
-//		{
-			
-			
-//			for(j = 0; j < listOfNames.length; j++) 
-//			{
-//				tableMap.put(j, listOfNames[j]);
-//			}
-//		}
-		
-		for(String n : tableMap.values())
-		{
-			System.out.println(n);
-		}
 		
 
-
-		
-		
-//		for(i = 0 ; i < numOfM ; i++) 
-//		{
-//			System.out.println("TABLE");
-//			String[] listOfNames = p.getSetOfNames(mSize, startPosition);
-//			
-//			
-//			for(j = 0; j < listOfNames.length; j++) 
-//			{
-//				System.out.println(listOfNames[j]);
-//			}
-//			
-//			startPosition += mSize;
-//			
-//		}
 //		
-//		
-//		
-//		for(a = 0 ; a < numOfN ; a++) 
-//		{
-//			System.out.println("SMALLTABLE");
-//			String[] listOfNames = p.getSetOfNames(nSize, startPosition);
-//			startPosition += nSize;
-//			
-//			for(b = 0; b < listOfNames.length; b++) 
-//			{
-//				System.out.println(listOfNames[b]);
-//			}
-//			
-//		}
-		
-//		Person p = new Person();
-//		String[] listOfNames = p.getSetOfNames(5, 0);
-		
-//		int j;
-//		
-//		for(j = 0; j < listOfNames.length; j++) 
-//		{
-//			System.out.println(listOfNames[j]);
-//		}
-		
 		
 	}
 	
 	public static void main(String[] args) 
 	{
-		Table table = new Table(8, 73);
+		Table table = new Table(9, 63);
 		
 		table.optimalSeating();
 		
 		table.getTableAssignments();
+		
+		
 		
 		
 		

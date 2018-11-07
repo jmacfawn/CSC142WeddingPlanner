@@ -71,7 +71,7 @@ public class Person {
 	 * @param numOfNames
 	 * @return arrayOfNames
 	 */
-	public String[] getSetOfNames(int numOfNames)  
+	public String[] getSetOfNames(int numOfNames, int startPosition)  
 	{
 		
 		String[] arrayOfNames = new String[numOfNames];
@@ -86,11 +86,20 @@ public class Person {
 		return arrayOfNames;
 	}
 	
+	public String getNameFromList(int position)
+	{
+		getAllNames();
+		
+		String name = allNames[position];
+		
+		return name;
+	}
+	
 	
 	public static void main(String[] args) throws FileNotFoundException {   // a main for testing
 		Person person = new Person();
 
-		String[] table1 = person.getSetOfNames(500);
+		String[] table1 = person.getSetOfNames(500, 0);
 		
 		System.out.print(table1[499]);
 		
