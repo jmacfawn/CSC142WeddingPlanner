@@ -53,12 +53,24 @@ public class Joshua_MacFawn_Isaac_Holloway {
 			// Determine optimal seating arrangement 
 			table.optimalSeating();
 			
+			System.out.println();
+			
 			// Display optimal seating arrangement
 			table.displayOptimalArrangement();
 			
-			// TODO Ask user if they want the output
+			System.out.println();
 			
-			// TODO Display output, if yes
+			// TODO Ask user if they want the output
+			Scanner sc = new Scanner(System.in);
+			System.out.println("Would you like to see the table assignments? (Yes/No)");
+			String seeOutput = sc.nextLine().substring(0, 1);
+			
+			if(seeOutput.equals("y") || seeOutput.equals("Y"))
+			{
+				table.getTableAssignments();
+				System.out.println();
+			}
+
 
 		}
 		

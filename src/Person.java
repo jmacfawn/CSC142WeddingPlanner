@@ -1,3 +1,8 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Scanner;
+
 /**
  * @author jmacfawn
  *
@@ -6,8 +11,7 @@
 public class Person {
 	
 	private String name;
-	private String[] allNames = { "January", "February", "March", "April", "May", "June", "July",
-			"August", "September", "October", "November", "December" };
+	private String[] allNames = new String[500];
 	
 	// Constructor to set name variable 
 	public Person(String str)
@@ -39,27 +43,56 @@ public class Person {
 		return name.length();
 	}
 	
-	public String[] getSetOfNames(int numOfNames, int startPosition)
+	private void getAllNames()
 	{
+		String file = "500names.txt";
+		int i;
+		
+		try {
+			Scanner sc = new Scanner(new File(file));
+
+			for(i = 0; i < 500; i++)
+			{
+				allNames[i] = sc.nextLine();
+			}
+						
+			sc.close();
+				 
+		}
+		
+		catch (IOException e) {
+		  e.printStackTrace();
+		}
+		
+	}
+	
+	/**
+	 * Get set of names of size "numOfNames" from the list of 500.
+	 * @param numOfNames
+	 * @return arrayOfNames
+	 */
+	public String[] getSetOfNames(int numOfNames)  
+	{
+		
 		String[] arrayOfNames = new String[numOfNames];
+		getAllNames();
 		int i;
 		
 		for (i = 0; i < numOfNames ; i++)
 		{
-			arrayOfNames[i] = allNames[startPosition];
-			startPosition++;
+			arrayOfNames[i] = allNames[i];
 		}
 		
 		return arrayOfNames;
 	}
 	
 	
-	public static void main(String[] args) {   // a main for testing
+	public static void main(String[] args) throws FileNotFoundException {   // a main for testing
 		Person person = new Person();
 
-		String[] table1 = person.getSetOfNames(5, 0);
+		String[] table1 = person.getSetOfNames(500);
 		
-		System.out.print(table1[3]);
+		System.out.print(table1[499]);
 		
 //		String person1;
 //		
