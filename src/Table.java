@@ -84,7 +84,6 @@ public class Table {
 			} 
 		} 
 		while(numOfN == null);
-		
 	}
 	
 	public void displayOptimalArrangement() 
@@ -131,8 +130,6 @@ public class Table {
 			}
 		}
 		
-	
-		
 		for(int c = 0; c < tableAssignments.length ; c++ )
 		{
 			System.out.println("Table " + (c + 1) );
@@ -146,15 +143,9 @@ public class Table {
 				} else {
 					System.out.println(tableAssignments[c][d]);
 				}
-				
 			}
 			System.out.println();
-		}
-		
-		
-
-//		
-		
+		}	
 	}
 	
 	public static void main(String[] args) 
