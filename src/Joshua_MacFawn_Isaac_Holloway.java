@@ -19,11 +19,7 @@ public class Joshua_MacFawn_Isaac_Holloway {
 	public Joshua_MacFawn_Isaac_Holloway() {
 		 
 	}
-	
 
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) {
 		
 		Scanner scanner = new Scanner(System.in);
@@ -65,12 +61,12 @@ public class Joshua_MacFawn_Isaac_Holloway {
 			System.out.println("Would you like to see the table assignments? (Yes/No)");
 			String seeOutput = sc.nextLine().substring(0, 1);
 			
-			// If yes, display the table assignments
 			if(seeOutput.equals("y") || seeOutput.equals("Y"))
 			{
 				System.out.println();
 				table.getTableAssignments();
 			}
-		}	
+		}
 	}
+
 }

@@ -15,6 +15,8 @@ public class Table {
 	
 	private int numOfGuests; 
 	
+	String[][] tableAssignments; 
+	
 	
 	/**
 	 * Constructor for Table class. 
@@ -26,6 +28,12 @@ public class Table {
 		mSize = m; // Max table size
 		nSize = m - 1; // Max table size - 1
 		numOfGuests = n; // Total number of guests
+		
+		optimalSeating();
+		
+		int tablesNeeded = (getNumOfM() + getNumOfN());
+		String[][] tableAssignments = new String[tablesNeeded][mSize];
+		
 	}
 	
 	public int getNumOfGuests()
@@ -55,6 +63,7 @@ public class Table {
 		return numOfN;
 	}
 	
+	// Determine the optimal seating arrangement based on inputs 
 	public void optimalSeating() 
 	{
 		int i, j;
@@ -86,6 +95,7 @@ public class Table {
 		while(numOfN == null);
 	}
 	
+	// Print out the optimal seating arrangement 
 	public void displayOptimalArrangement() 
 	{
 		System.out.println("With " + getNumOfGuests() + " guests and a maximum of "
@@ -100,7 +110,7 @@ public class Table {
 	{
 		int listPosition = 0, lastTableFilled = 0;
 		int tablesNeeded = (getNumOfM() + getNumOfN());
-		String[][] tableAssignments = new String[tablesNeeded][mSize];
+		tableAssignments = new String[tablesNeeded][mSize];
 		
 		Person p = new Person();
 		
@@ -145,21 +155,14 @@ public class Table {
 				}
 			}
 			System.out.println();
-		}	
+		}
 	}
 	
-	public static void main(String[] args) 
+	// Return boolean of whether a person is seated at a given table 
+	public boolean isSeatedAt(int tableNum, String name)
 	{
-		Table table = new Table(8, 63);
-		
-		table.optimalSeating();
-		
-		table.getTableAssignments();
-		
-		
-		
-		
-		
+		List<String> list = Arrays.asList(tableAssignments[(tableNum-1)]);
+		boolean isSeatedAt = list.contains(name); 	
+		return isSeatedAt;
 	}
-
 }

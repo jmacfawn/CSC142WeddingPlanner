@@ -1,6 +1,4 @@
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
 import java.util.Scanner;
 
 /**
@@ -43,6 +41,7 @@ public class Person {
 		return name.length();
 	}
 	
+	// Read all names from text file and put into array
 	private void getAllNames()
 	{
 		String file = "500names.txt";
@@ -86,6 +85,7 @@ public class Person {
 		return arrayOfNames;
 	}
 	
+	// From array of all names, get one name at a particular position
 	public String getNameFromList(int position)
 	{
 		getAllNames();
@@ -94,28 +94,6 @@ public class Person {
 		
 		return name;
 	}
-	
-	
-	public static void main(String[] args) throws FileNotFoundException {   // a main for testing
-		Person person = new Person();
-
-		String[] table1 = person.getSetOfNames(500, 0);
-		
-		System.out.print(table1[499]);
-		
-//		String person1;
-//		
-//		person1 = person.getName();
-//		
-//		person.setName("Joshua");
-//
-//		person1 = person.getName();
-//		
-//		int person1Length = person.getNameLength();
-//		
-//		System.out.println(person1Length); 
-	}
-
 }
 
  
